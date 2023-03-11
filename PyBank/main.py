@@ -42,3 +42,14 @@ print("Average Change:  " + '${:.2f}'.format(avg_change))
 print("Greatest Increase in Profits:  ",month[g_inc_index + 1], '(${:.0f})'.format(max(monthly_change)))
 print("Greatest Decrease in Profits:  ", month[g_dec_index+1], '(${:.0f})'.format(min(monthly_change)))
 print(" ")
+
+# write to txt file  
+analysis_path = os.path.join("..", "Analysis", "results.txt")
+with open(analysis_path, "w") as txtfile:
+    txtfile.write("Financial Analysis\n")
+    txtfile.write("----------------------------------\n")
+    txtfile.write("Total Months:  " + str(month_total)+ "\n" )
+    txtfile.write("Total:  " + '${:.0f}'.format(profit_total)+"\n")
+    txtfile.write("Average Change:  " + '${:.2f}'.format(avg_change)+"\n")
+    txtfile.write("Greatest Increase in Profits:  " + month[g_inc_index + 1] + '  (${:.0f})'.format(max(monthly_change))+"\n")
+    txtfile.write("Greatest Decrease in Profits:  " + month[g_dec_index+1] + '  (${:.0f})'.format(min(monthly_change))+"\n")
