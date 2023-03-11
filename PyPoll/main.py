@@ -6,6 +6,7 @@ election_csv = os.path.join("..", "Resources", "election_data.csv")
 # List for candiadtes, dictionary for votes, and variables
 candidates = []
 v_per_cand = {}
+percentage = {}
 vote_total = 0
 
 # open csv file and read header
@@ -22,9 +23,13 @@ with open(election_csv) as csvfile:
             candidates.append(row[2])
             v_per_cand[row[2]] = 0
         v_per_cand[row[2]] += 1
-
+    
+    # calculate percentage of total votes 
+    for i in candidates:
+        percentage[i] = v_per_cand[i]/vote_total
         
         
 print(vote_total)
 print(candidates)
 print(v_per_cand)
+print(percentage)
