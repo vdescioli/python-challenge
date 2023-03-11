@@ -23,14 +23,18 @@ with open(budget_csv) as csvfile:
         profit_total = profit_total + int(row[1])
 
     # create monthly change list and find min and max 
-    for i in range(1, len(profit)-1):
+    for i in range(1, len(profit)):
         monthly_change.append(profit[i] - profit[i-1])
-        
+
+    # add index to find month of respective change    
     g_inc_index = monthly_change.index(max(monthly_change))
     g_dec_index = monthly_change.index(min(monthly_change))        
-                
+
+    # find average change 
+    avg_change = sum(monthly_change) / len(monthly_change)           
 
 print("Total Months:  " + str(month_total))
 print("Total:  $" + str(profit_total))
+print("Average Change:  ", "$", round(avg_change, 2))
 print("Greatest Increase in Profits:  ",month[g_inc_index + 1], "  $", max(monthly_change))
 print("Greatest Decrease in Profits:  ", month[g_dec_index+1], "  $", min(monthly_change))
