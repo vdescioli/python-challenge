@@ -33,8 +33,12 @@ with open(budget_csv) as csvfile:
     # find average change 
     avg_change = sum(monthly_change) / len(monthly_change)           
 
+print("  ")
+print("Financial Analysis")
+print("----------------------------------")
 print("Total Months:  " + str(month_total))
-print("Total:  $" + str(profit_total))
-print("Average Change:  ", "$", round(avg_change, 2))
-print("Greatest Increase in Profits:  ",month[g_inc_index + 1], "  $", max(monthly_change))
-print("Greatest Decrease in Profits:  ", month[g_dec_index+1], "  $", min(monthly_change))
+print("Total:  " + '${:.0f}'.format(profit_total))
+print("Average Change:  " + '${:.2f}'.format(avg_change))
+print("Greatest Increase in Profits:  ",month[g_inc_index + 1], '(${:.0f})'.format(max(monthly_change)))
+print("Greatest Decrease in Profits:  ", month[g_dec_index+1], '(${:.0f})'.format(min(monthly_change)))
+print(" ")
